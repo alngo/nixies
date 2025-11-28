@@ -7,11 +7,19 @@ local on_attach = function(client, bufnr)
     })
 
   local opts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+  vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = '[E]xpand diagnostic message' })
 end
+
+-- "grn" is mapped in Normal mode to |vim.lsp.buf.rename()|
+-- "gra" is mapped in Normal and Visual mode to |vim.lsp.buf.code_action()|
+-- "grr" is mapped in Normal mode to |vim.lsp.buf.references()|
+-- "gri" is mapped in Normal mode to |vim.lsp.buf.implementation()|
+-- "grt" is mapped in Normal mode to |vim.lsp.buf.type_definition()|
+-- "gO" is mapped in Normal mode to |vim.lsp.buf.document_symbol()|
+-- CTRL-S is mapped in Insert mode to |vim.lsp.buf.signature_help()|
+--  <space>e to show
 
 -- Enable Rust LSP
 vim.lsp.config('rust_analyzer', {
