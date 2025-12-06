@@ -7,9 +7,16 @@ local on_attach = function(client, bufnr)
     })
 
   local opts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = '[E]xpand diagnostic message' })
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+  vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
+  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+  vim.keymap.set("n", "<leader>q", ":lua vim.diagnostic.setqflist()<CR>", opts)
+  vim.keymap.set("n", "<leader>i", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>", opts)
+  vim.keymap.set("n", "<leader>vs", ":lua require('telescope.builtin').lsp_document_symbols()<CR>", opts)
+  vim.keymap.set("n", "<leader>vd", ":lua require('telescope.builtin').diagnostics()<CR>", opts)
 end
 
 -- "grn" is mapped in Normal mode to |vim.lsp.buf.rename()|
