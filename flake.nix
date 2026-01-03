@@ -9,10 +9,17 @@
       pkgs = import nixpkgs { inherit system; };
     in {
       packages.${system}.neovim = import ./neovim { inherit pkgs; };
+      packages.${system}.devtools = import ./devtools { inherit pkgs; };
+
 
       apps.${system}.neovim = {
         type = "app";
         program = "${self.packages.${system}.neovim}/bin/nvim";
+      };
+
+      apps.${system}.devtools = {
+        type = "app";
+        program = "${self.packages.${system}.devtools}/bin/devtools";
       };
     };
 }
