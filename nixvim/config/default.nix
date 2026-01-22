@@ -1,19 +1,15 @@
 {
   # Import all your configuration modules here
-  imports = [ 
-    ./bufferline.nix
+  imports = [
+    ./option.nix
     ./telescope.nix
+    ./lsp.nix
+    ./cmp.nix
+    ./bufferline.nix
+    ./avante.nix
   ];
 
-  colorschemes.gruvbox.enable = true;
-
-  clipboard = {
-    providers.wl-copy.enable = true;
-  };
-
   globals = {
-    mapleader = " ";
-    maplocalleader = " ";
   };
 
   plugins = {
@@ -24,19 +20,7 @@
       autoLoad = true;
     };
 
-    lsp = {
-      enable = true;
-      servers = {
-        lua_ls.enable = true;
-	nixd.enable = true;
-	rust_analyzer = {
-	  enable = true;
-	  installCargo = true;
-	  installRustc = true;
-	};
-      };
-    };
-    dap = {
+    sleuth = {
       enable = true;
       autoLoad = true;
     };
