@@ -34,5 +34,6 @@
     ./plugins/cmp.nix
     ./plugins/telescope.nix
     ./plugins/codecompanion.nix
+		./mapping.nix
   ];
 }

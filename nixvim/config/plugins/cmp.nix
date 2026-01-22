@@ -1,20 +1,14 @@
 {
   plugins = {
+
+    friendly-snippets.enable = true;
+    luasnip.enable = true;
+
     cmp = {
       enable = true;
       autoEnableSources = true;
 
       settings = {
-        mapping = {
-          "<C-d>" = "cmp.mapping.scroll_docs(-4)";
-          "<C-f>" = "cmp.mapping.scroll_docs(4)";
-          "<C-Space>" = "cmp.mapping.complete()";
-          "<C-e>" = "cmp.mapping.close()";
-          "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}), {'i', 's'})";
-          "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}), {'i', 's'})";
-          "<CR>" = "cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace })";
-        };
-
         preselect = "cmp.PreselectMode.None";
 
         snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
@@ -63,9 +57,6 @@
         ];
       };
     };
-
-    friendly-snippets.enable = true;
-    luasnip.enable = true;
 
     lspkind = {
       enable = true;
